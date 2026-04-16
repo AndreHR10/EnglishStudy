@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ── Custom Animations ────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  0%   { transform: scale(0.8); opacity: 0; }
+  70%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+  70%  { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease forwards;
+}
+
+.animate-pop {
+  animation: pop 0.4s ease forwards;
+}
+
+/* ── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ── Selection ─────────────────────────────────────── */
+::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: white;
+}
+
+/* ── Base ───────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0f172a;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hover scale utilities ──────────────────────────── */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+.active\:scale-98:active {
+  transform: scale(0.98);
+}
+
+/* ── Glass morphism ─────────────────────────────────── */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Grade color text ───────────────────────────────── */
+.grade-text {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Button reset ───────────────────────────────────── */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(99,102,241,0.7);
+  outline-offset: 2px;
+}
+
+/* ── Input focus ────────────────────────────────────── */
+input:focus,
+select:focus {
+  outline: none;
+}
+
+/* ── Transition default ─────────────────────────────── */
+.transition-smooth {
+  transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── Celebration particles (pure CSS) ───────────────── */
+@keyframes float-particle {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-200px) scale(0); opacity: 0; }
+}
+
+.particle {
+  animation: float-particle 1s ease forwards;
+}
